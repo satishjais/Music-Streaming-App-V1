@@ -73,13 +73,11 @@ To run Music Streaming App on your local device, you will need to have the follo
 Install the required packages
 ```
 pip install -r requirements.txt
-
 ```
 start the app
 
 ```
 flask run
-
 ```
 ### DataBase Creation
 flask shell
