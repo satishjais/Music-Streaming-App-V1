@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lyrics</title>
+
+    
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa; 
+            padding: 50px; 
+        }
+
+        header {
+            margin-bottom: 20px; 
+        }
+
+        a {
+            display: inline-block;
+            margin: 10px 0;
+            color: #070b10; 
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        h1, h2 {
+            color: #007bff; 
+        }
+    </style>
+</head>
+<body>
+    <div>
+        {% if user.role == "creator" %}
+            <header>
+                <a href="/creator_dashboard" class="btn btn-link">Go Back to Dashboard</a>
+            </header>
+        {% elif user.role == "User" %}
+            <header>
+                <a href="/dashboard" class="btn btn-link">Go Back to Dashboard</a>
+            </header>
+        {% elif user.role == "admin" %}
+            <header>
+                <a href="/admin_dashboard" class="btn btn-link">Go Back to Dashboard</a>
+            </header>
+        {% endif %}
+    </div>
+
+    {% for s in song %}
+    {% if c.id == s.id %}
+        <h1 class="display-4">Lyrics for song: {{ s.song_name }}</h1>
+        <h5>{{ s.lyrics }}</h5>
+    {% endif %}
+{% endfor %}
+
+
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

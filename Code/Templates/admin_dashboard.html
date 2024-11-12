@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+
+    
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        #sidebar {
+            width: 250px;
+            height: 100vh;
+            background-color: #333;
+            color: #fff;
+            padding-top: 20px;
+            position: fixed;
+        }
+
+        #content {
+            margin-left: 250px;
+            padding: 20px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        #logo {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        
+        #statistics, #performance, #content-management {
+            margin-top: 20px;
+        }
+
+        
+        #sidebar {
+            background-color: #343a40; 
+            padding: 20px;
+        }
+
+        #content {
+            padding: 20px;
+        }
+
+        #logo {
+            color: #fff; 
+        }
+
+        h1, h2 {
+            color: #007bff; 
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px; 
+        }
+
+        th, td {
+            padding: 8px;
+            border: 1px solid #dee2e6; 
+        }
+
+        th {
+            background-color: #007bff; 
+            color: #fff;
+        }
+    </style>
+
+<script>
+    function showConfirmation(message, targetUrl) {
+        var confirmed = confirm(message);
+        
+        if (confirmed) {
+            window.location.href = targetUrl;
+        }
+    }
+</script>
+
+
+</head>
+<body>
+
+    <div id="sidebar">
+        <div id="logo" class="mb-4">Music Admin</div>
+        <ul>
+            <li><a href="#" class="text-white">Dashboard</a></li>
+            <li><a href="/admin_songs_man" class="text-white">Songs Management</a></li>
+            <li><a href="/admin_user_man" class="text-white">Creators Management</a></li>
+            <li><a href="/all_album" class="text-white">Albums</a></li>
+            <li><a href="#" onclick="showConfirmation('Are you sure you want to logout?', '/logout')">Logout</a></li>
+        </ul>
+    </div>
+
+    <div id="content">
+        <h1>Admin Dashboard</h1>
+        
+        <div id="statistics">
+            <h2>App Statistics</h2>
+            <p>Total Users: {{u_count}}</p>
+            <p>Total Creators: {{c_count}}</p>
+            <p>Blacklisted Creators: {{blcr_count}}</p>
+        </div>
+
+        <div id="performance">
+            <h2>Song Data</h2>
+            <p>Total Song: {{song_count}}</p>
+            <p>Flagged Songs: {{fls_count}}</p>
+            
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Ranking</th>
+                        <th>Name</th>
+                        <th>Current Rating</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <h1>Top Performimg Songs</h1>
+                    {% for a in top_songs %}
+                        <tr>
+                            <td>{{loop.index}}</td>
+                            <td>{{a.song_name}}</td>
+                            <td>{{a.ratings}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            
+            <p><img src="..\static\piechart.png" class="img-fluid" alt="Pie Chart"></p>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

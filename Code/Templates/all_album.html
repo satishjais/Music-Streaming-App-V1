@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALL ALBUM</title>
+
+    
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa; 
+            padding: 50px; 
+        }
+
+        header {
+            margin-bottom: 20px; 
+        }
+
+        a {
+            display: inline-block;
+            margin: 10px 0;
+            color: #007bff; 
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        h1 {
+            color: #007bff; 
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px; 
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6; 
+        }
+
+        th {
+            background-color: #007bff; 
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        {% if user1.role == "creator" %}
+            <header>
+                <a href="/creator_dashboard" class="btn btn-link">Go Back to Dashboard</a>
+            </header>
+        {% elif user1.role == "User" %}
+            <header>
+                <a href="/dashboard" class="btn btn-link">Go Back to Dashboard</a>
+            </header>
+        {% elif user1.role == "admin" %}
+            <header>
+                <a href="/admin_dashboard" class="btn btn-link">Go Back to Dashboard</a>
+            </header>
+        {% endif %}
+    </div>
+
+    {% if album|length == 0 %}
+        <h1>No Albums Created Yet</h1>
+    {% else %}
+        <h1>Albums:</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Artist</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for u in user %}
+                    {% for a in album %}
+                        {% if a.user_id == u.id %}
+                            <tr>
+                                <td><a href="/all_album_songs/{{ a.id }}" class="btn btn-link">{{ a.name }}</a></td>
+                                <td>{{ u.username }}</td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

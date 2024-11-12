@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Album</title>
+
+    
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa; 
+            padding: 50px; 
+        }
+
+        header {
+            background-color: #333; 
+            color: white;
+            padding: 15px;
+            text-align: center;
+            margin-bottom: 20px; 
+        }
+
+        h1 {
+            color: #007bff; 
+            margin-top: 30px; 
+        }
+
+        form {
+            margin-top: 20px; 
+            max-width: 400px; 
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        label {
+            margin-bottom: 10px; 
+            display: block;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 20px; 
+        }
+
+        button {
+            background-color: #28a745; 
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838; 
+        }
+
+        .btn-link {
+            color: #007bff; 
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="/your_album" class="btn btn-link">Go Back</a>
+    </header>
+
+    {% if error %}
+    <h3 style="color:red">{{ error }}</h3>
+    {% endif %}
+
+    <h1>Edit Album</h1>
+    <form method="POST" action="">
+        <label for="new_name">New Album Name:</label>
+        <input type="text" id="new_name" name="new_name" value="{{ album.name }}" required class="form-control">
+        <button type="submit" class="btn btn-success">Save Changes</button>
+    </form>
+
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

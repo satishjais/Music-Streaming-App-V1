@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+    
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa; 
+            padding: 50px; 
+        }
+
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            margin-bottom: 20px; 
+        }
+
+        nav a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        h2 {
+            color: #007bff; 
+        }
+
+        h3 {
+            margin-top: 20px; 
+        }
+
+        h1 {
+            color: #007bff; 
+            margin-top: 30px; 
+        }
+
+        table {
+            margin-top: 20px; 
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6; 
+        }
+
+        th {
+            background-color: #007bff; 
+            color: white;
+        }
+
+        select {
+            width: 70px; 
+            margin-right: 10px; 
+        }
+
+        button {
+            padding: 8px 16px;
+            background-color: #007bff; 
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3; 
+        }
+
+        .btn-link {
+            color: #007bff; 
+            text-decoration: none;
+        }
+    </style>
+
+<script>
+    function showConfirmation(message, targetUrl) {
+        var confirmed = confirm(message);
+        
+        if (confirmed) {
+            window.location.href = targetUrl;
+        }
+    }
+</script>
+
+</head>
+<body>
+    <nav>
+        <a href="#" onclick="showConfirmation('Are you sure you want to logout?', '/logout')">Logout</a>
+
+
+        <form class="form-inline ml-auto" action="/search" method="post">
+            <input class="form-control mr-sm-2" type="text" name="query" placeholder="Search...">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </nav>
+    
+    <h2>Welcome Creator, {{user.email}}</h2>
+    <h3>We have a few suggestions for you</h3>
+    <h1>SONGS</h1>
+
+    {% if results %}
+        {% if results|length == 0 %}
+            <h1>NO Songs Found</h1>
+        {% else %}
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>SNo</th>
+                        <th>Name</th>
+                        <th>Artist</th>
+                        <th>Lyrics</th>
+                        <th>Genre</th>
+                        <th>Ratings</th>
+                        <th>Rate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for s in results %}
+                        <tr>
+                            <td>{{loop.index}}</td>
+                            <td>{{s.song_name}}</td>
+                            <td>{{s.artist}}</td>
+                            <td><a href="/lyrics/{{s.id}}" class="btn btn-link">Song lyrics</a></td>
+                            <td>{{s.genre}}</td>
+                            <td>{{s.ratings}}</td>
+                            <td>
+                                <form action="/rate_song/{{ s.id }}" method="post">
+                                    <select name="rating" class="form-control">
+                                        <option value='1'>1</option>
+                                        <option value='2'>2</option>
+                                        <option value='3'>3</option>
+                                        <option value='4'>4</option>
+                                        <option value='5'>5</option>
+                                    </select>
+                                    <button type="submit" class="btn btn-primary">Rate</button>
+                                </form>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+    {% else %}
+        {% if song|length == 0 %}
+            <h1>NO Songs Found</h1>
+        {% else %}
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>SNo</th>
+                        <th>Name</th>
+                        <th>Artist</th>
+                        <th>Lyrics</th>
+                        <th>Genre</th>
+                        <th>Ratings</th>
+                        <th>Rate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for s in song %}
+                        <tr>
+                            <td>{{loop.index}}</td>
+                            <td>{{s.song_name}}</td>
+                            <td>{{s.artist}}</td>
+                            <td><a href="/lyrics/{{s.id}}" class="btn btn-link">Song lyrics</a></td>
+                            <td>{{s.genre}}</td>
+                            <td>{{s.ratings}}</td>
+                            <td>
+                                <form action="/rate_song/{{ s.id }}" method="post">
+                                    <select name="rating" class="form-control">
+                                        <option value='1'>1</option>
+                                        <option value='2'>2</option>
+                                        <option value='3'>3</option>
+                                        <option value='4'>4</option>
+                                        <option value='5'>5</option>
+                                    </select>
+                                    <button type="submit" class="btn btn-primary">Rate</button>
+                                </form>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+    {% endif %}
+
+    <a href="/your_playlist" class="btn btn-link">Go to Playlist</a>
+    <a href="/all_album" class="btn btn-link">All Albums</a>
+    <a href="/your_album" class="btn btn-link">Your Album</a>
+    <a href="uploaded_songs" class="btn btn-link">Uploaded Songs</a>
+    <a href="/play" class="btn btn-link" target="_blank">Click to play a Song</a>
+
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
