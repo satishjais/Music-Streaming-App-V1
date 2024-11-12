@@ -14,9 +14,17 @@
 
 ## Screenshots
 
-![Screenshot 1](https://github.com/user-attachments/assets/9146f1dd-bde7-42a6-8f7a-2e01d850cb45)
-![Screenshot 2](https://github.com/user-attachments/assets/f683d617-e46f-44bb-8434-9b261650537c)
-![Screenshot 3](https://github.com/user-attachments/assets/944f2a41-90ce-41dd-860b-a8d200ffca85)
+![Screenshot (508)](https://github.com/user-attachments/assets/c51a7a79-ea35-4bf9-9ccc-b509a932e111)
+![Screenshot (509)](https://github.com/user-attachments/assets/87134a26-dd65-4158-ac3b-be5cd3036211)
+![Screenshot (510)](https://github.com/user-attachments/assets/45fc8563-035e-4ee6-9683-44fe3ab6350b)
+![Screenshot (511)](https://github.com/user-attachments/assets/75a4c885-7295-44f2-a030-eb6e161e618d)
+![Screenshot (512)](https://github.com/user-attachments/assets/ab30f2f2-5c04-4fc1-b6e2-fea9c7606a35)
+![Screenshot (513)](https://github.com/user-attachments/assets/d645b7f5-5021-4290-9309-811910bb11eb)
+
+
+
+
+
 
 ## Video
 Check out the video demonstration of the Sargam project here: [Video Link](Video Link)
