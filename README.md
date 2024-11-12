@@ -13,13 +13,12 @@
 - **Data Visualization**: View musical insights through dynamic charts and graphs using Matplotlib.
 
 ## Screenshots
-
-![Screenshot (508)](https://github.com/user-attachments/assets/c51a7a79-ea35-4bf9-9ccc-b509a932e111)
-![Screenshot (509)](https://github.com/user-attachments/assets/87134a26-dd65-4158-ac3b-be5cd3036211)
-![Screenshot (510)](https://github.com/user-attachments/assets/45fc8563-035e-4ee6-9683-44fe3ab6350b)
-![Screenshot (511)](https://github.com/user-attachments/assets/75a4c885-7295-44f2-a030-eb6e161e618d)
-![Screenshot (512)](https://github.com/user-attachments/assets/ab30f2f2-5c04-4fc1-b6e2-fea9c7606a35)
-![Screenshot (513)](https://github.com/user-attachments/assets/d645b7f5-5021-4290-9309-811910bb11eb)
+![Screenshot (508)](https://github.com/user-attachments/assets/5b5c241b-6b23-421e-abf8-83d822fc57a0)
+![Screenshot (509)](https://github.com/user-attachments/assets/02cf71aa-06a7-4156-86a2-0addef8b0489)
+![Screenshot (510)](https://github.com/user-attachments/assets/96b68c54-884a-431b-9ba2-112f46eca0f6)
+![Screenshot (511)](https://github.com/user-attachments/assets/82cf690b-5477-401d-9dd5-58e25f4cb826)
+![Screenshot (512)](https://github.com/user-attachments/assets/333a0093-bd39-417f-9138-b0bb8a76c9d4)
+![Screenshot (513)](https://github.com/user-attachments/assets/dde3fa5e-6924-4ca8-8765-60d1336c7395)
 
 ## Technologies Used
 
