@@ -21,14 +21,6 @@
 ![Screenshot (512)](https://github.com/user-attachments/assets/ab30f2f2-5c04-4fc1-b6e2-fea9c7606a35)
 ![Screenshot (513)](https://github.com/user-attachments/assets/d645b7f5-5021-4290-9309-811910bb11eb)
 
-
-
-
-
-
-## Video
-Check out the video demonstration of the Sargam project here: [Video Link](Video Link)
-
 ## Technologies Used
 
 ### Backend
@@ -70,30 +62,34 @@ This schema supports interactions between users, songs, playlists, and albums, p
 - **graph.py**: Creates dynamic visualizations to represent user interactions with music content.
 
 ## Installation and Setup
-1. **Clone the repository**:
-   ```bash
-   git clone <repository_url>
-   cd sargam
-   ```
-2. **Create and activate a virtual environment**:
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
-   ```
-3. **Install the dependencies**:
-   ```bash
-   pip install -r requirements.txt
-   ```
-4. **Set up the database**:
-   ```bash
-   flask db init
-   flask db migrate -m "Initial migration."
-   flask db upgrade
-   ```
-5. **Run the development server**:
-   ```bash
-   flask run
-   ```
+# Getting Started
+### Prerequisites
+To run Music Streaming App on your local device, you will need to have the following installed:
+
+- Python 3
+- Pip
+
+### Installation
+Install the required packages
+```
+pip install -r requirements.txt
+
+```
+start the app
+
+```
+flask run
+
+```
+### DataBase Creation
+flask shell
+```
+db.create_all()
+exit()
+```
+### Usage
+Register for an account if you are new or login if you already have one.
+Once logged in, you can create playlists,become a creator, can create your albumns, give ratings etc.
 
 ---
 
