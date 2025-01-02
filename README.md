@@ -89,5 +89,3 @@ Register for an account if you are new or login if you already have one.
 Once logged in, you can create playlists,become a creator, can create your albumns, give ratings etc.
 
 ---
-
-This README file provides a complete overview of the Sargam app, its features, technologies, database schema, architecture, and instructions for setup, aimed to help users and contributors understand and navigate the project effortlessly.
